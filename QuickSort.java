@@ -28,29 +28,36 @@ public class QuickSort {
         }
 
         int pivot = array[highIndex]; //choose a pivot
-        int leftPointer = lowIndex; //left pointer at the left side of the array
-        int rightPointer = highIndex; //right pointer at the right side of the array
-        
+        int leftPointer = lowIndex; //left pointer to point at the left of the array
+        int rightPointer = highIndex - 1; //right pointer to point at the right of the array before the pivot
+    
         while (leftPointer < rightPointer) { //while left is still less than right
-
-            while (array[leftPointer] <= pivot && leftPointer < rightPointer) { //while left is greater than or hit pivot and is less than right
+    
+            // walk from the left until we find a number greater than the pivot, or hit the right pointer.
+            while (array[leftPointer] <= pivot && leftPointer < rightPointer) {
                 leftPointer++; //increment left pointer
             }
-
-            while (array[rightPointer] >= pivot && leftPointer < rightPointer) { //while right is lesser than or hit pivot and is less than left
+        
+            // walk from the right until we find a number less than the pivot, or hit the left pointer.
+            while (array[rightPointer] >= pivot && leftPointer < rightPointer) {
                 rightPointer--; //decrement right pointer
             }
-            
-            //left now points to the larger number than pivot and right points to the smaller number than pivot
+        
+            swap(array, leftPointer, rightPointer); //swap left pointer with right pointer
 
-            swap(array, leftPointer, rightPointer); //swap the number of the pointers
-
-        } 
+        }
 
         swap(array, leftPointer, highIndex); //swap left pointer with pivot
 
         quicksort(array, lowIndex, leftPointer - 1); //recursive
         quicksort(array, leftPointer + 1, highIndex);
+
+        if (array[leftPointer] > array[highIndex]) { //fixes issue where the last value could potentially be out of order
+            swap(array, leftPointer, highIndex);
+        }
+        else {
+            leftPointer = highIndex;
+        }
 
     }
 
