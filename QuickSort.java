@@ -37,12 +37,12 @@ public class QuickSort {
     
         while (leftPointer < rightPointer) { //while left is still less than right
     
-            // walk from the left until we find a number greater than the pivot, or hit the right pointer
+            //walk from the left until we find a number greater than the pivot, or hit the right pointer
             while (array[leftPointer] <= pivot && leftPointer < rightPointer) {
                 leftPointer++; //increment left pointer
             }
         
-            // walk from the right until we find a number less than the pivot, or hit the left pointer
+            //walk from the right until we find a number less than the pivot, or hit the left pointer
             while (array[rightPointer] >= pivot && leftPointer < rightPointer) {
                 rightPointer--; //decrement right pointer
             }
