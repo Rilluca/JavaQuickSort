@@ -1,4 +1,4 @@
-import java.util.Random;
+import java.util.Random; //import random number generator
 
 public class QuickSort {
 
