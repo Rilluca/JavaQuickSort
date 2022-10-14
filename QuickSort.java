@@ -31,19 +31,18 @@ public class QuickSort {
         int pivot = array[pivotIndex];
         swap(array, pivotIndex, highIndex); //swap pivot to the end of the array
 
-        //int pivot = array[highIndex]; //choose the number at the end of the array as pivot
-        
+        //int pivot = array[highIndex]; //choose the number at the end of the array as pivot   
         int leftPointer = lowIndex; //left pointer to point at the left of the array
         int rightPointer = highIndex - 1; //right pointer to point at the right of the array before the pivot
     
         while (leftPointer < rightPointer) { //while left is still less than right
     
-            // walk from the left until we find a number greater than the pivot, or hit the right pointer.
+            // walk from the left until we find a number greater than the pivot, or hit the right pointer
             while (array[leftPointer] <= pivot && leftPointer < rightPointer) {
                 leftPointer++; //increment left pointer
             }
         
-            // walk from the right until we find a number less than the pivot, or hit the left pointer.
+            // walk from the right until we find a number less than the pivot, or hit the left pointer
             while (array[rightPointer] >= pivot && leftPointer < rightPointer) {
                 rightPointer--; //decrement right pointer
             }
