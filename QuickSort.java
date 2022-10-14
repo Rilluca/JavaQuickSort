@@ -30,9 +30,9 @@ public class QuickSort {
         int pivotIndex = new Random().nextInt(highIndex - lowIndex) + lowIndex; //choose a random pivot
         int pivot = array[pivotIndex];
         swap(array, pivotIndex, highIndex); //swap pivot to the end of the array
-        
 
         //int pivot = array[highIndex]; //choose the number at the end of the array as pivot
+        
         int leftPointer = lowIndex; //left pointer to point at the left of the array
         int rightPointer = highIndex - 1; //right pointer to point at the right of the array before the pivot
     
